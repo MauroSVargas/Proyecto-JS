@@ -8,7 +8,7 @@ let Entrada4= 10000
 //--------------------------------------funciones que suceden una vez elijo entrada---------------------------------//
 
 function IngreseTarjeta(tarjeta){     
-    if (tarjeta=== "0011"){
+    if (tarjeta === "0011"){
         let clave = prompt("ingrese su clave")
         IngreseClave(clave)
     } else {
@@ -17,11 +17,12 @@ function IngreseTarjeta(tarjeta){
 }
 
 function IngreseClave(clave) {
-    if (clave=== "1234"){ 
+    if (clave === "1234"){
+        alert("tarjeta registrada")
+    } else {
+        alert("clave incorrecta")
     }
-    else {
-        alert("clave de tarjeta incorrecto")
-    }
+
 }
 
 function MontoTicket1(){
@@ -61,34 +62,56 @@ function MontoTicket4(){
 //--------------------------------------funciones a la hora de elegir entrada---------------------------------//
 
 function PagoTicket1(){
-    let tarjeta = prompt("ingrese su tarjeta")
-    IngreseTarjeta(tarjeta)
-    let clave = prompt("ingrese su clave")
-    IngreseClave(clave)
-    MontoTicket1()
+    prompt("ingrese su tarjeta")
+    IngreseTarjeta();
+    IngreseClave();
+    MontoTicket1();
 }
 
 function PagoTicket2(){
     let tarjeta = prompt("ingrese su tarjeta")
     IngreseTarjeta(tarjeta)
-    let clave = prompt("ingrese su clave")
-    IngreseClave(clave)
-    MontoTicket2()
+    IngreseClave(clave); { 
+        if (clave === "1234"){ 
+        MontoTicket2()
+    }
+     else {
+        alert ("clave incorrecta")
+     }
+}
 }
 
 function PagoTicket3(){
     let tarjeta = prompt("ingrese su tarjeta")
     IngreseTarjeta(tarjeta)
-    let clave = prompt("ingrese su clave")
-    IngreseClave(clave)
-    MontoTicket3()
+    IngreseClave(clave); { 
+        if (clave === "1234"){ 
+        MontoTicket3()
+    }
+     else {
+        alert ("clave incorrecta")
+     }
+}
 }
 
 function PagoTicket4(){
     let tarjeta = prompt("ingrese su tarjeta")
     IngreseTarjeta(tarjeta)
-    let clave = prompt("ingrese su clave")
-    IngreseClave(clave)
-    MontoTicket4()
+    IngreseClave(clave); { 
+        if (clave === "1234"){ 
+        MontoTicket4()
+    }
+     else {
+        alert ("clave incorrecta")
+     }
+}
 }
 
+
+/*function PagoTicket3(){
+    let tarjeta = prompt("ingrese su tarjeta")
+    IngreseTarjeta(tarjeta)
+    let clave = prompt("ingrese su clave")
+    IngreseClave(clave)
+    MontoTicket3()
+}*/
