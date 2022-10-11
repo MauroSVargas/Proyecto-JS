@@ -1,32 +1,58 @@
+// --------------------------------------- VARIABLES ------------------------------//
 let Saldo= 5000
-/*let Entrada1= 2500
-let Entrada2= 5000
-let Entrada3= 7500
-let Entrada4= 10000*/
 
-let precioEntradas = [2500, 5000, 7500, 10000]
+// ------------------------------------- ARRAY ---------------------------------//
+const precioEntradas = [2500, 5000, 7500, 10000]
+precioEntradas.push('precio a definir')
+console.log(precioEntradas)
+
+//------------------------------------ EVENTOS DE ENTRADAS --------------------------------//
+function clickEntrada() {
+    PagoTicket1()
+}
+
+function clickEntrada2() {
+    PagoTicket2()
+}
+
+function clickEntrada3() {
+    PagoTicket3()
+}
+
+function clickEntrada4() {
+    PagoTicket4()
+}
+
+const ENTRADA1 = document.getElementById('ticket1');
+ENTRADA1.addEventListener('click', clickEntrada);
+
+const ENTRADA2 = document.getElementById('ticket2');
+ENTRADA2.addEventListener('click', clickEntrada2);
+
+const ENTRADA3 = document.getElementById('ticket3');
+ENTRADA3.addEventListener('click', clickEntrada3);
+
+const ENTRADA4 = document.getElementById('ticket4');
+ENTRADA4.addEventListener('click', clickEntrada4);
+
 
 //--------------------------------------funciones que suceden una vez elijo entrada---------------------------------//
 
-function IngreseTarjeta(tarjeta){     
-    if (tarjeta === "0011"){
-        let clave = prompt("ingrese su clave")
-        IngreseClave(clave)
+function IngreseTarjeta(tarjeta){    
+    if (tarjeta === "0011"){ 
+        alert("ingrese clave")
     } else {
-        alert("numero de tarjeta incorrecto")
+        alert("tarjeta no valida")
     }
 }
-
 
 function IngreseClave(clave) {
-    let clave= "1234"
-/*    if (clave === "1234"){
-        alert("tarjeta registrada")
+    if (clave === "1234"){
+        alert("tarjeta regristrada")
     } else {
-        alert("clave incorrecta")
+        alert("numero de clave incorrecto")
     }
-}   */
-}
+}   
 
 function MontoTicket1(){
    if (Saldo >= precioEntradas[0]){
@@ -37,7 +63,7 @@ function MontoTicket1(){
 }
 
 function MontoTicket2(){
-    if (Saldo >= Entrada2){
+    if (Saldo >= precioEntradas[1]){
          alert("pago realizado con exito!")
      } else{
          alert("saldo insuficiente")
@@ -45,7 +71,7 @@ function MontoTicket2(){
 }
 
 function MontoTicket3(){
-    if (Saldo >= Entrada3){
+    if (Saldo >= precioEntradas[2]){
          alert("pago realizado con exito!")
      } else{
          alert("saldo insuficiente")
@@ -53,7 +79,7 @@ function MontoTicket3(){
 }
 
 function MontoTicket4(){
-    if (Saldo >= Entrada4){
+    if (Saldo >= precioEntradas[3]){
          alert("pago realizado con exito!")
      } else{
          alert("saldo insuficiente")
@@ -66,64 +92,34 @@ function MontoTicket4(){
 
 function PagoTicket1(){
     let tarjeta = prompt("ingrese su tarjeta")
-    IngreseTarjeta();
-    IngreseClave();{
-        if (clave === "1234"){
-            alert("tarjeta registrada")
-        } else {
-            alert("clave incorrecta")
-        }
-    }
+    IngreseTarjeta(tarjeta);
+    let clave = prompt("ingrese su clave")
+    IngreseClave(clave);
     MontoTicket1();
-}
-
+}  
 function PagoTicket2(){
     let tarjeta = prompt("ingrese su tarjeta")
-    IngreseTarjeta(tarjeta)
-    IngreseClave(clave); { 
-        if (clave === "1234"){ 
-        MontoTicket2()
-    }
-     else {
-        alert ("clave incorrecta")
-     }
-}
+    IngreseTarjeta(tarjeta);
+    let clave = prompt("ingrese su clave")
+    IngreseClave(clave);
+    MontoTicket2();
 }
 
 function PagoTicket3(){
     let tarjeta = prompt("ingrese su tarjeta")
-    IngreseTarjeta(tarjeta)
-    IngreseClave(clave); { 
-        if (clave === "1234"){ 
-        MontoTicket3()
-    }
-     else {
-        alert ("clave incorrecta")
-     }
-}
+    IngreseTarjeta(tarjeta);
+    let clave = prompt("ingrese su clave")
+    IngreseClave(clave);
+    MontoTicket3();
 }
 
 function PagoTicket4(){
     let tarjeta = prompt("ingrese su tarjeta")
-    IngreseTarjeta(tarjeta)
-    IngreseClave(clave); { 
-        if (clave === "1234"){ 
-        MontoTicket4()
-    }
-     else {
-        alert ("clave incorrecta")
-     }
-}
-}
-
-
-/*function PagoTicket3(){
-    let tarjeta = prompt("ingrese su tarjeta")
-    IngreseTarjeta(tarjeta)
+    IngreseTarjeta(tarjeta);
     let clave = prompt("ingrese su clave")
-    IngreseClave(clave)
-    MontoTicket3()
-}*/
+    IngreseClave(clave);
+    MontoTicket4();
+}
 
 //---------------------------------- OBJETOS ----------------------------------------------//
 
@@ -145,4 +141,3 @@ console.log(producto3)
 
 let producto4 = new producto("remera francesa", 6000, "franja roja y azul fondo blanco")
 console.log(producto4)
-
