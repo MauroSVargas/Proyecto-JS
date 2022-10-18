@@ -1,5 +1,6 @@
 // --------------------------------------- VARIABLES ------------------------------//
 let Saldo= 5000
+let tarjeta = 0011
 
 // ------------------------------------- ARRAY ---------------------------------//
 const precioEntradas = [2500, 5000, 7500, 10000]
@@ -38,19 +39,19 @@ ENTRADA4.addEventListener('click', clickEntrada4);
 
 //--------------------------------------funciones que suceden una vez elijo entrada---------------------------------//
 
-function IngreseTarjeta(tarjeta){    
-    if (tarjeta === "0011"){ 
-        alert("ingrese clave")
-    } else {
-        alert("tarjeta no valida")
+function IngreseTarjeta(){  
+    Number(prompt("ingrese su tarjeta"))
+    if (tarjeta === 0011){ 
+    } 
     }
-}
 
-function IngreseClave(clave) {
-    if (clave === "1234"){
-        alert("tarjeta regristrada")
-    } else {
-        alert("numero de clave incorrecto")
+
+function IngreseClave() {
+    Number(prompt("ingrese su clave"))
+    if (clave == 1234){    
+    } 
+    else {
+        return;
     }
 }   
 
@@ -90,13 +91,27 @@ function MontoTicket4(){
 
 //--------------------------------------funciones a la hora de elegir entrada---------------------------------//
 
-function PagoTicket1(){
+/*function PagoTicket1(){
     let tarjeta = prompt("ingrese su tarjeta")
-    IngreseTarjeta(tarjeta);
-    let clave = prompt("ingrese su clave")
-    IngreseClave(clave);
-    MontoTicket1();
-}  
+    IngreseTarjeta(tarjeta); {
+        if (IngreseTarjeta(tarjeta)=true){ 
+            let clave = prompt("ingrese su clave")
+        IngreseClave(clave);{
+            if (IngreseClave(clave)=true){
+                MontoTicket1();
+            } else { 
+                alert("numero de clave incorrecto")
+            }
+        }
+    }
+}
+} */
+
+function PagoTicket1(){
+    IngreseTarjeta() ? IngreseClave() ? MontoTicket1() ? alert("compra realizada") : alert("saldo insuficiente") : 
+    alert("clave no valida") : alert("tarejta no valida")
+}
+
 function PagoTicket2(){
     let tarjeta = prompt("ingrese su tarjeta")
     IngreseTarjeta(tarjeta);
