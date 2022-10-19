@@ -1,6 +1,7 @@
 // --------------------------------------- VARIABLES ------------------------------//
 let Saldo= 5000
-let tarjeta = 0011
+let tarjeta = 1515
+let clave = 1234
 
 // ------------------------------------- ARRAY ---------------------------------//
 const precioEntradas = [2500, 5000, 7500, 10000]
@@ -24,6 +25,10 @@ function clickEntrada4() {
     PagoTicket4()
 }
 
+/*function mostrarForm(){
+    OpacidadForm()
+}*/
+
 const ENTRADA1 = document.getElementById('ticket1');
 ENTRADA1.addEventListener('click', clickEntrada);
 
@@ -36,24 +41,45 @@ ENTRADA3.addEventListener('click', clickEntrada3);
 const ENTRADA4 = document.getElementById('ticket4');
 ENTRADA4.addEventListener('click', clickEntrada4);
 
+/*const FORMULARIO = document.getElementById('formulario');
+FORMULARIO.addEventListenerlistener('click', OpacidadForm);*/
 
-//--------------------------------------funciones que suceden una vez elijo entrada---------------------------------//
 
-function IngreseTarjeta(){  
-    Number(prompt("ingrese su tarjeta"))
-    if (tarjeta === 0011){ 
-    } 
+
+//--------------------------------------funciones que suceden una vez eligo entrada---------------------------------//
+/*function IngreseTarjeta(){
+    let tarjeta = Number(prompt("ingrese su tarjeta"))
+    do {    
+    tarjeta==1515 ? alert("ingrese clave") : alert("tarjeta no valida")
+    } while (tarjeta) 
+}*/
+function IngreseTarjeta(){
+    let tarjeta = Number(prompt("ingrese su tarjeta"))
+
+do{
+    if (tarjeta === 1515) {
+        alert("ingrese clave")
+        tarjeta = false
+    }else{
+        alert("tarejta no valida")
+        tarjeta = Number(prompt("ingrese su tarjeta"))
     }
-
+}while(tarjeta)
+}
 
 function IngreseClave() {
-    Number(prompt("ingrese su clave"))
-    if (clave == 1234){    
-    } 
-    else {
-        return;
-    }
-}   
+    let clave = Number(prompt("ingrese su clave"))
+    do{
+        if (clave == 1234) {
+            alert("Tarjeta registrada")
+            clave = false
+        }else{
+            alert("clave no valida")
+            clave = Number(prompt("ingrese su tarjeta"))
+        }
+    }while(clave)
+}
+
 
 function MontoTicket1(){
    if (Saldo >= precioEntradas[0]){
@@ -90,51 +116,34 @@ function MontoTicket4(){
 
 
 //--------------------------------------funciones a la hora de elegir entrada---------------------------------//
-
-/*function PagoTicket1(){
-    let tarjeta = prompt("ingrese su tarjeta")
-    IngreseTarjeta(tarjeta); {
-        if (IngreseTarjeta(tarjeta)=true){ 
-            let clave = prompt("ingrese su clave")
-        IngreseClave(clave);{
-            if (IngreseClave(clave)=true){
-                MontoTicket1();
-            } else { 
-                alert("numero de clave incorrecto")
-            }
-        }
-    }
+/*function OpacidadForm(){
+    document.getElementById('formulario').opacity = 1
 }
-} */
-
+*/
 function PagoTicket1(){
-    IngreseTarjeta() ? IngreseClave() ? MontoTicket1() ? alert("compra realizada") : alert("saldo insuficiente") : 
-    alert("clave no valida") : alert("tarejta no valida")
-}
+    IngreseTarjeta()
+    IngreseClave()
+    MontoTicket1()         
+} 
 
 function PagoTicket2(){
-    let tarjeta = prompt("ingrese su tarjeta")
-    IngreseTarjeta(tarjeta);
-    let clave = prompt("ingrese su clave")
-    IngreseClave(clave);
-    MontoTicket2();
+    IngreseTarjeta()
+        IngreseClave()
+            MontoTicket2() 
 }
 
 function PagoTicket3(){
-    let tarjeta = prompt("ingrese su tarjeta")
-    IngreseTarjeta(tarjeta);
-    let clave = prompt("ingrese su clave")
-    IngreseClave(clave);
-    MontoTicket3();
+    IngreseTarjeta()
+        IngreseClave()
+            MontoTicket3() 
 }
 
 function PagoTicket4(){
-    let tarjeta = prompt("ingrese su tarjeta")
-    IngreseTarjeta(tarjeta);
-    let clave = prompt("ingrese su clave")
-    IngreseClave(clave);
-    MontoTicket4();
+    IngreseTarjeta()
+        IngreseClave()
+            MontoTicket4()
 }
+
 
 //---------------------------------- OBJETOS ----------------------------------------------//
 

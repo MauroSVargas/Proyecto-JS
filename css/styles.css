@@ -4,3 +4,13 @@ body{
 h1{
     color: black;
 }
+
+#formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    border-style: groove;
+    margin: 0 550px;
+}
