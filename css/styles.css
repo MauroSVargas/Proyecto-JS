@@ -14,3 +14,12 @@ h1{
     border-style: groove;
     margin: 0 550px;
 }
+
+.modal{ 
+    visibility: hidden; 
+    opacity: 0; 
+    transition: all .3s ease-in-out;}
+
+.modal:active { 
+    visibility: visible; 
+    opacity: 1;}

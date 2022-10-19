@@ -25,15 +25,17 @@ function clickEntrada4() {
     PagoTicket4()
 }
 
-/*function mostrarForm(){
-    OpacidadForm()
-}*/
+function ActivarForm(){
+    ActivarForm().addEventListener('click', function() {
+        ActivarForm().classList.toggle('modal:active');
+      });
+}  
 
 const ENTRADA1 = document.getElementById('ticket1');
-ENTRADA1.addEventListener('click', clickEntrada);
+ENTRADA1.addEventListener('click', ActivarForm);
 
 const ENTRADA2 = document.getElementById('ticket2');
-ENTRADA2.addEventListener('click', clickEntrada2);
+ENTRADA2.addEventListener('click', ActivarForm);
 
 const ENTRADA3 = document.getElementById('ticket3');
 ENTRADA3.addEventListener('click', clickEntrada3);
@@ -41,9 +43,8 @@ ENTRADA3.addEventListener('click', clickEntrada3);
 const ENTRADA4 = document.getElementById('ticket4');
 ENTRADA4.addEventListener('click', clickEntrada4);
 
-/*const FORMULARIO = document.getElementById('formulario');
-FORMULARIO.addEventListenerlistener('click', OpacidadForm);*/
-
+const FORMULARIO = document.querySelectorAll('modal');
+FORMULARIO.addEventListener('click', ActivarForm);
 
 
 //--------------------------------------funciones que suceden una vez eligo entrada---------------------------------//
@@ -116,10 +117,6 @@ function MontoTicket4(){
 
 
 //--------------------------------------funciones a la hora de elegir entrada---------------------------------//
-/*function OpacidadForm(){
-    document.getElementById('formulario').opacity = 1
-}
-*/
 function PagoTicket1(){
     IngreseTarjeta()
     IngreseClave()
