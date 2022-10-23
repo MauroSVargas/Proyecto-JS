@@ -1,7 +1,7 @@
 // --------------------------------------- VARIABLES ------------------------------//
 let Saldo= 5000
-let tarjeta = 1515
-let clave = 1234
+let tarjeta = document.getElementById('NumeroTarjeta').value
+let clave = document.getElementById('clave').value
 
 // ------------------------------------- ARRAY ---------------------------------//
 const precioEntradas = [2500, 5000, 7500, 10000]
@@ -26,28 +26,31 @@ function clickEntrada4() {
 }
 
 function ActivarForm(){
-    ActivarForm().addEventListener('click', function() {
-        ActivarForm().classList.toggle('modal:active');
-      });
+    document.getElementById('formulario').classList.remove('modal');
 }  
 
 const ENTRADA1 = document.getElementById('ticket1');
 ENTRADA1.addEventListener('click', ActivarForm);
+ENTRADA1.addEventListener('click', PagoTicket1);
 
 const ENTRADA2 = document.getElementById('ticket2');
 ENTRADA2.addEventListener('click', ActivarForm);
 
 const ENTRADA3 = document.getElementById('ticket3');
-ENTRADA3.addEventListener('click', clickEntrada3);
+ENTRADA3.addEventListener('click', ActivarForm);
 
 const ENTRADA4 = document.getElementById('ticket4');
-ENTRADA4.addEventListener('click', clickEntrada4);
+ENTRADA4.addEventListener('click', ActivarForm);
+ENTRADA4.addEventListener('click', PagoTicket4);
 
-const FORMULARIO = document.querySelectorAll('modal');
-FORMULARIO.addEventListener('click', ActivarForm);
+const FORMULARIO = document.getElementById('formulario');
+document.getElementById('formulario').classList.add('modal')
 
 
 //--------------------------------------funciones que suceden una vez eligo entrada---------------------------------//
+
+
+
 /*function IngreseTarjeta(){
     let tarjeta = Number(prompt("ingrese su tarjeta"))
     do {    
@@ -55,28 +58,23 @@ FORMULARIO.addEventListener('click', ActivarForm);
     } while (tarjeta) 
 }*/
 function IngreseTarjeta(){
-    let tarjeta = Number(prompt("ingrese su tarjeta"))
-
 do{
-    if (tarjeta === 1515) {
+    if (tarjeta.length > 5) {
         alert("ingrese clave")
         tarjeta = false
     }else{
-        alert("tarejta no valida")
-        tarjeta = Number(prompt("ingrese su tarjeta"))
+        alert("tarjeta no valida")
     }
 }while(tarjeta)
 }
 
 function IngreseClave() {
-    let clave = Number(prompt("ingrese su clave"))
     do{
-        if (clave == 1234) {
+        if (clave.length = 3) {
             alert("Tarjeta registrada")
             clave = false
         }else{
             alert("clave no valida")
-            clave = Number(prompt("ingrese su tarjeta"))
         }
     }while(clave)
 }

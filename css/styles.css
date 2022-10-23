@@ -6,20 +6,36 @@ h1{
 }
 
 #formulario{
-    display: flex;
+    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: bisque;
     border-style: groove;
-    margin: 0 550px;
+    margin: 0 500px 500px;
+    padding: 10px 15px;
+}
+
+.boton-cerrar{
+    right: 0;
+    cursor: pointer;
+    border-radius: 10%;
+    border-color: black;
+    border-style: groove;
+    border-width: 1px;
+
 }
 
 .modal{ 
     visibility: hidden; 
     opacity: 0; 
-    transition: all .3s ease-in-out;}
+}
 
 .modal:active { 
     visibility: visible; 
-    opacity: 1;}
+    opacity: 1;
+    z-index: 1;
+    margin: 20 0;
+
+
+}
