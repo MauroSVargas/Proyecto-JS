@@ -1,7 +1,5 @@
 // --------------------------------------- VARIABLES ------------------------------//
-let Saldo= 5000
-//let tarjeta = document.getElementById('NumeroTarjeta').value
-//let clave = document.getElementById('clave').value
+let Saldo= 5500
 
 // ------------------------------------- ARRAY ---------------------------------//
 const precioEntradas = [2500, 5000, 7500, 10000]
@@ -9,49 +7,67 @@ precioEntradas.push('precio a definir')
 console.log(precioEntradas)
 
 //------------------------------------ EVENTOS DE ENTRADAS --------------------------------//
-/*function clickEntrada() {
-    PagoTicket1()
-}
-
-function clickEntrada2() {
-    PagoTicket2()
-}
-
-function clickEntrada3() {
-    PagoTicket3()
-}
-
-function clickEntrada4() {
-    PagoTicket4()
-}
-*/
-
 function ComprarEntrada1() {
     PagoTicket1()
 }
+
+function ComprarEntrada2() {
+    PagoTicket2()
+}
+
+function ComprarEntrada3() {
+    PagoTicket3()
+}
+
+function ComprarEntrada4() {
+    PagoTicket4()
+}
+
+//------------------------EVENTOS VISUALISAR FORMULARIO-----------------------------------//
 
 function ActivarForm(){
     document.getElementById('formulario').classList.remove('modal');
 }  
 
+function ActivarForm2(){
+    document.getElementById('formulario2').classList.remove('modal');
+} 
+
+function ActivarForm3(){
+    document.getElementById('formulario3').classList.remove('modal');
+} 
+
+function ActivarForm4(){
+    document.getElementById('formulario4').classList.remove('modal');
+} 
+
+//--------------------------------consts sobre seleccion de entrada------------------------------//
+
 const ENTRADA1 = document.getElementById('ticket1');
 ENTRADA1.addEventListener('click', ActivarForm);
-/*
+
 const ENTRADA2 = document.getElementById('ticket2');
-ENTRADA2.addEventListener('click', ActivarForm);
+ENTRADA2.addEventListener('click', ActivarForm2);
 
 const ENTRADA3 = document.getElementById('ticket3');
-ENTRADA3.addEventListener('click', ActivarForm);
+ENTRADA3.addEventListener('click', ActivarForm3);
 
 const ENTRADA4 = document.getElementById('ticket4');
-ENTRADA4.addEventListener('click', ActivarForm);
-ENTRADA4.addEventListener('click', PagoTicket4);
-*/
-const FORMULARIO = document.getElementsByClassName('boton-cerrar');
-//FORMULARIO.addEventListener('click', CerrarForm);
+ENTRADA4.addEventListener('click', ActivarForm4);
+
+
 
 const COMPRA = document.getElementById('boton-comprar');
 COMPRA.addEventListener('click', ComprarEntrada1);
+
+const COMPRA2 = document.getElementById('boton-comprar2');
+COMPRA2.addEventListener('click', ComprarEntrada2);
+
+const COMPRA3 = document.getElementById('boton-comprar3');
+COMPRA3.addEventListener('click', ComprarEntrada3);
+
+const COMPRA4 = document.getElementById('boton-comprar4');
+COMPRA4.addEventListener('click', ComprarEntrada4);
 
 //--------------------------------------funciones que suceden una vez eligo entrada---------------------------------//
 
@@ -60,10 +76,9 @@ function IngreseTarjeta() {
 
     do{
         if (tarjeta.length >= 5) {
-  
             tarjeta = false
         }else{
-            tarjeta = document.getElementById('NumeroTarjeta').value
+            break
         }
     }while(tarjeta)
     
@@ -71,16 +86,14 @@ function IngreseTarjeta() {
 
 function IngreseClave() {
     let clave = document.getElementById('clave').value
-
+     
     do{
-        if (clave.length >= 3) {
-            
-            clave = false
+    if (clave.length >= 3) {
+        clave = false
         }else{
-            clave = document.getElementById('clave').value
-        }
+           break
+        } 
     }while(clave)
-    
 }
 
 /*
@@ -104,7 +117,7 @@ function IngreseClave() {
 */
 
 function MontoTicket1(){
-   if (Saldo >= precioEntradas[0]){
+   if (Saldo > precioEntradas[0]){
         alert("pago realizado con exito!")
     } else{
         alert("saldo insuficiente")
@@ -112,7 +125,7 @@ function MontoTicket1(){
 }
 
 function MontoTicket2(){
-    if (Saldo >= precioEntradas[1]){
+    if (Saldo > precioEntradas[1]){
          alert("pago realizado con exito!")
      } else{
          alert("saldo insuficiente")
@@ -120,7 +133,7 @@ function MontoTicket2(){
 }
 
 function MontoTicket3(){
-    if (Saldo >= precioEntradas[2]){
+    if (Saldo > precioEntradas[2]){
          alert("pago realizado con exito!")
      } else{
          alert("saldo insuficiente")
@@ -128,7 +141,7 @@ function MontoTicket3(){
 }
 
 function MontoTicket4(){
-    if (Saldo >= precioEntradas[3]){
+    if (Saldo > precioEntradas[3]){
          alert("pago realizado con exito!")
      } else{
          alert("saldo insuficiente")
@@ -141,7 +154,7 @@ function MontoTicket4(){
 function PagoTicket1(){
     IngreseTarjeta()
     IngreseClave()
-    MontoTicket1()         
+    MontoTicket1()
 } 
 
 function PagoTicket2(){

@@ -16,6 +16,50 @@ h1{
     padding: 10px 15px;
 }
 
+#formulario{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    border-style: groove;
+    margin: 0 500px 500px;
+    padding: 10px 15px;
+}
+
+#formulario2{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    border-style: groove;
+    margin: 0 500px 500px;
+    padding: 10px 15px;
+}
+
+#formulario3{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    border-style: groove;
+    margin: 0 500px 500px;
+    padding: 10px 15px;
+}
+
+#formulario4{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    border-style: groove;
+    margin: 0 500px 500px;
+    padding: 10px 15px;
+}
+
 .boton-cerrar{
     float: inline-end;
     right: 0;
@@ -28,14 +72,14 @@ h1{
 }
 
 .modal{ 
-    display: hidden;
+    visibility: hidden;
     opacity: 0;
 }
 
 .modal:active { 
-    display: visible; 
+    visibility: visible; 
    opacity: 1;
-    z-index: 1;
+    z-index: 1200;
     margin: 20 0;
 
 
