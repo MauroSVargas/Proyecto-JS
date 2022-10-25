@@ -1,7 +1,7 @@
 // --------------------------------------- VARIABLES ------------------------------//
 let Saldo= 5000
-let tarjeta = document.getElementById('NumeroTarjeta').value
-let clave = document.getElementById('clave').value
+//let tarjeta = document.getElementById('NumeroTarjeta').value
+//let clave = document.getElementById('clave').value
 
 // ------------------------------------- ARRAY ---------------------------------//
 const precioEntradas = [2500, 5000, 7500, 10000]
@@ -9,7 +9,7 @@ precioEntradas.push('precio a definir')
 console.log(precioEntradas)
 
 //------------------------------------ EVENTOS DE ENTRADAS --------------------------------//
-function clickEntrada() {
+/*function clickEntrada() {
     PagoTicket1()
 }
 
@@ -24,6 +24,11 @@ function clickEntrada3() {
 function clickEntrada4() {
     PagoTicket4()
 }
+*/
+
+function ComprarEntrada1() {
+    PagoTicket1()
+}
 
 function ActivarForm(){
     document.getElementById('formulario').classList.remove('modal');
@@ -31,8 +36,7 @@ function ActivarForm(){
 
 const ENTRADA1 = document.getElementById('ticket1');
 ENTRADA1.addEventListener('click', ActivarForm);
-ENTRADA1.addEventListener('click', PagoTicket1);
-
+/*
 const ENTRADA2 = document.getElementById('ticket2');
 ENTRADA2.addEventListener('click', ActivarForm);
 
@@ -42,43 +46,62 @@ ENTRADA3.addEventListener('click', ActivarForm);
 const ENTRADA4 = document.getElementById('ticket4');
 ENTRADA4.addEventListener('click', ActivarForm);
 ENTRADA4.addEventListener('click', PagoTicket4);
+*/
+const FORMULARIO = document.getElementsByClassName('boton-cerrar');
+//FORMULARIO.addEventListener('click', CerrarForm);
 
-const FORMULARIO = document.getElementById('formulario');
-document.getElementById('formulario').classList.add('modal')
-
+const COMPRA = document.getElementById('boton-comprar');
+COMPRA.addEventListener('click', ComprarEntrada1);
 
 //--------------------------------------funciones que suceden una vez eligo entrada---------------------------------//
 
+function IngreseTarjeta() {
+    let tarjeta = document.getElementById('NumeroTarjeta').value
 
-
-/*function IngreseTarjeta(){
-    let tarjeta = Number(prompt("ingrese su tarjeta"))
-    do {    
-    tarjeta==1515 ? alert("ingrese clave") : alert("tarjeta no valida")
-    } while (tarjeta) 
-}*/
-function IngreseTarjeta(){
-do{
-    if (tarjeta.length > 5) {
-        alert("ingrese clave")
-        tarjeta = false
-    }else{
-        alert("tarjeta no valida")
-    }
-}while(tarjeta)
+    do{
+        if (tarjeta.length >= 5) {
+  
+            tarjeta = false
+        }else{
+            tarjeta = document.getElementById('NumeroTarjeta').value
+        }
+    }while(tarjeta)
+    
 }
 
 function IngreseClave() {
+    let clave = document.getElementById('clave').value
+
     do{
-        if (clave.length = 3) {
-            alert("Tarjeta registrada")
+        if (clave.length >= 3) {
+            
             clave = false
+        }else{
+            clave = document.getElementById('clave').value
+        }
+    }while(clave)
+    
+}
+
+/*
+function IngreseTarjeta(){
+    if (tarjeta.value.length > 5) {
+        //alert("ingrese clave")
+        
+    }else{
+        alert("tarjeta no valida")
+    }
+}
+
+function IngreseClave() {
+        if (clave.length > 3) {
+            //alert("Tarjeta registrada")
+            
         }else{
             alert("clave no valida")
         }
-    }while(clave)
 }
-
+*/
 
 function MontoTicket1(){
    if (Saldo >= precioEntradas[0]){
