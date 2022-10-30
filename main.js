@@ -1,11 +1,5 @@
 // --------------------------------------- VARIABLES ------------------------------//
 let Saldo= 5500
-
-// ------------------------------------- ARRAY ---------------------------------//
-const precioEntradas = [2500, 5000, 7500, 10000]
-precioEntradas.push('precio a definir')
-console.log(precioEntradas)
-
 //------------------------------------ EVENTOS DE ENTRADAS --------------------------------//
 function ComprarEntrada1() {
     PagoTicket1()
@@ -42,7 +36,7 @@ function ActivarForm4(){
 } 
 
 //--------------------------------consts sobre seleccion de entrada------------------------------//
-
+/*
 const ENTRADA1 = document.getElementById('ticket1');
 ENTRADA1.addEventListener('click', ActivarForm);
 
@@ -68,7 +62,7 @@ COMPRA3.addEventListener('click', ComprarEntrada3);
 
 const COMPRA4 = document.getElementById('boton-comprar4');
 COMPRA4.addEventListener('click', ComprarEntrada4);
-
+*/
 //--------------------------------------funciones que suceden una vez eligo entrada---------------------------------//
 
 function IngreseTarjeta() {
@@ -174,25 +168,60 @@ function PagoTicket4(){
         IngreseClave()
             MontoTicket4()
 }
-
+  
+  const contenedorProductos = document.getElementById('contenedorProductos');
+  
+  ArrayEntrada.forEach((ProductoEntrada) => {
+    const divProducto = document.createElement('div');
+    divProducto.classList.add('card', 'col-xl-3', 'col-md-6', 'col-sm-12');
+    divProducto.innerHTML = `
+                            <div>
+                                <img src="img/${ProductoEntrada.id}.jpg" class="card-img-top img-fluid py-3">
+                                <div class="card-body">
+                                    <h3 class="card-title"> ${ProductoEntrada.nombre} </h3>
+                                    <p class="card-text"> ${ProductoEntrada.precio} </p>
+                                    <button id="boton${ProductoEntrada.id}" class="btn btn-primary"> Agregar al Carrito </button>
+                                </div>
+                            </div>`;
+    contenedorProductos.appendChild(divProducto);
+    //Agregar un evento al boton de agregar al carrito:
+    const boton = document.getElementById(`boton${ArrayEntrada.id}`);
+    boton.addEventListener('click', () => {
+      agregarAlCarrito(ArrayEntrada.id);
+    });
+  });
 
 //---------------------------------- OBJETOS ----------------------------------------------//
 
-function producto(nombre, precio, color){
-    this.nombre = nombre;
-    this.precio = precio;
-    this.color = color;
-}
- console.log(producto)
+class ProductoEntrada {
+    constructor(id, nombre, precio, cantidad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+    }}
 
-let producto1 = new producto("remera basica", 1500, "blanca y negra")
-console.log(producto1)
+    const productoEntrada1 = new ProductoEntrada(1, 'Sector campo', 2000, 1);
+    const productoEntrada2 = new ProductoEntrada(2, 'Sector platea baja', 3000, 1);
+    const productoEntrada3 = new ProductoEntrada(3, 'Sector platea alta', 7000, 1);
+    const productoEntrada4 = new ProductoEntrada(4, 'Sector vip', 10000, 1);
 
-let producto2 = new producto("remera degrade", 2000, "blanca y gris")
-console.log(producto2)
+class productoRemera{   
+    constructor(id, color, precio, cantidad){
+        this.id = id;
+        this.color = color;
+        this.precio = precio;
+        this.cantidad = cantidad;
+}}
 
-let producto3 = new producto("remera marina", 5500, "celeste azul blanca")
-console.log(producto3)
+    const productoRemera1 = new productoRemera (1, "blanca y negra", 1500, 1)
+    const productoRemera2 = new productoRemera(2, "blanca y gris", 2000, 1)
+    const productoRemera3 = new productoRemera(3, "celeste azul blanca", 5500, 1)
+    const productoRemera4 = new productoRemera(4, "franja roja y azul fondo blanco", 6000, 1)
 
-let producto4 = new producto("remera francesa", 6000, "franja roja y azul fondo blanco")
-console.log(producto4)
+// ------------------------------------- ARRAY ---------------------------------//
+
+const ArrayEntrada = [productoEntrada1 , productoEntrada2, productoEntrada3, productoEntrada4];
+
+const ArrayRemera = [productoRemera1, productoRemera2, productoRemera3, productoRemera4];
+  
