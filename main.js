@@ -165,46 +165,24 @@ function PagoTicket3(){
 
 function PagoTicket4(){
     IngreseTarjeta()
-        IngreseClave()
-            MontoTicket4()
+    IngreseClave()
+    MontoTicket4()
 }
-  
-  const contenedorProductos = document.getElementById('contenedorProductos');
-  
-  ArrayEntrada.forEach((ProductoEntrada) => {
-    const divProducto = document.createElement('div');
-    divProducto.classList.add('card', 'col-xl-3', 'col-md-6', 'col-sm-12');
-    divProducto.innerHTML = `
-                            <div>
-                                <img src="img/${ProductoEntrada.id}.jpg" class="card-img-top img-fluid py-3">
-                                <div class="card-body">
-                                    <h3 class="card-title"> ${ProductoEntrada.nombre} </h3>
-                                    <p class="card-text"> ${ProductoEntrada.precio} </p>
-                                    <button id="boton${ProductoEntrada.id}" class="btn btn-primary"> Agregar al Carrito </button>
-                                </div>
-                            </div>`;
-    contenedorProductos.appendChild(divProducto);
-    //Agregar un evento al boton de agregar al carrito:
-    const boton = document.getElementById(`boton${ArrayEntrada.id}`);
-    boton.addEventListener('click', () => {
-      agregarAlCarrito(ArrayEntrada.id);
-    });
-  });
 
 //---------------------------------- OBJETOS ----------------------------------------------//
-
 class ProductoEntrada {
-    constructor(id, nombre, precio, cantidad) {
+    constructor(id, img, nombre, precio, cantidad) {
         this.id = id;
+        this.img= img;
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
     }}
 
-    const productoEntrada1 = new ProductoEntrada(1, 'Sector campo', 2000, 1);
-    const productoEntrada2 = new ProductoEntrada(2, 'Sector platea baja', 3000, 1);
-    const productoEntrada3 = new ProductoEntrada(3, 'Sector platea alta', 7000, 1);
-    const productoEntrada4 = new ProductoEntrada(4, 'Sector vip', 10000, 1);
+    const productoEntrada1 = new ProductoEntrada(1, 'ejemplo-ticket','Sector campo', 2000, 1);
+    const productoEntrada2 = new ProductoEntrada(2, 'ejemplo-ticket2', 'Sector platea baja', 3000, 1);
+    const productoEntrada3 = new ProductoEntrada(3, 'ejemplo-ticket3' , 'Sector platea alta', 7000, 1);
+    const productoEntrada4 = new ProductoEntrada(4, 'ejemplo-ticket4', 'Sector vip', 10000, 1);
 
 class productoRemera{   
     constructor(id, color, precio, cantidad){
@@ -225,3 +203,27 @@ const ArrayEntrada = [productoEntrada1 , productoEntrada2, productoEntrada3, pro
 
 const ArrayRemera = [productoRemera1, productoRemera2, productoRemera3, productoRemera4];
   
+  
+  const contenedorProductos = document.getElementById('contenedor-productos');
+  
+  ArrayEntrada.forEach((ArrayEntrada) => {
+    const divProducto = document.createElement('div');
+    divProducto.classList.add('card');
+    divProducto.innerHTML = `
+                            <div class=container-fluid>
+                                <img src="img/${ArrayEntrada.img}.jpg" class="card-img">
+                                <div class="card-body">
+                                    <h3 class="card-title"> ${ArrayEntrada.nombre} </h3>
+                                    <p class="card-text"> ${ArrayEntrada.precio} </p>
+                                    <button id="boton${ArrayEntrada.id}" class="btn btn-primary"> Agregar al Carrito </button>
+                                </div>
+                            </div>`;
+    contenedorProductos.appendChild(divProducto);
+    //Agregar un evento al boton de agregar al carrito:
+    const boton = document.getElementById(`boton${ArrayEntrada.id}`);
+    boton.addEventListener('click', () => {
+      agregarAlCarrito(ArrayEntrada.id);
+    });
+  });
+
+
