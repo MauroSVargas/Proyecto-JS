@@ -84,3 +84,19 @@ h1{
 
 
 }
+
+.card{
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.card-img{
+    height: 250px;
+    width: 300px;
+}

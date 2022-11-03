@@ -210,7 +210,7 @@ const ArrayRemera = [productoRemera1, productoRemera2, productoRemera3, producto
     const divProducto = document.createElement('div');
     divProducto.classList.add('card');
     divProducto.innerHTML = `
-                            <div class=container-fluid>
+                            <div class=container contenedor-img>
                                 <img src="img/${ArrayEntrada.img}.jpg" class="card-img">
                                 <div class="card-body">
                                     <h3 class="card-title"> ${ArrayEntrada.nombre} </h3>
