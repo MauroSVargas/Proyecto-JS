@@ -1,5 +1,12 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
     background-color:gainsboro;
+    min-height: 100vh;
 }
 h1{
     color: black;
@@ -83,4 +90,39 @@ h1{
     margin: 20 0;
 
 
+}
+/*
+
+.imagen-entrada{
+    width: 350px;
+    height: 250px;
+}
+
+
+.card-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.card{
+    display: flex;
+    justify-content: center;
+
+
+}
+/*
+.contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+/*
+.card{
+    gap: 50px;
+    width: 350px;
+    height: 250px;
 }
