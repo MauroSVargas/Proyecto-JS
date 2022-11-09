@@ -125,4 +125,13 @@ h1{
     gap: 50px;
     width: 350px;
     height: 250px;
+}*/
+
+.img{
+    height: 150px;
+    width: 200px;
+}
+
+nav{
+    justify-content: space-between;
 }

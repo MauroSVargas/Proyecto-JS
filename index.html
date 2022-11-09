@@ -32,18 +32,27 @@
               <li class="nav-item">
                 <a class="nav-link active" href="pages/contacto.html">contacto</a>
               </li>
-            </ul>
+          </ul>
           </div>
         </div>
     </nav>
 
 </header>
 
-<section>
-  <div id="contenedor-productos">
+  <div id="contenedor-productos" class="container">
+    <div class="row"></div>
 
   </div>
-</section>
+
+  <h2>Carrito de Compras:</h2>
+            <ul id="carrito" class="list-group">
+              <div class="row container"> 
+              <button class="btn btn-primary" id="verCarrito">Ver Carrito</button>
+              <button class="btn btn-primary" id="vaciarCarrito">Vaciar Carrito</button>
+            </div>
+            <p class="text-right">Total de la compra: <span id="totalCompra">0</span></p>
+              <div class="row py-3" id="contenedorCarrito"></div>
+            </ul>
 <!--  
 <section>
       
@@ -59,34 +68,6 @@
           <button id="ticket1" class="btn btn-primary">Comprar</button>
         </div>
       </div>
-
-      <div class="card" style="width: 18rem;">
-        <img src="img/ejemplo-ticket2.jpg" class="card-img-top mt-2" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Sector Platea Baja</h5>
-          <p class="card-text">precio $5000ar</p>
-          <button id="ticket2" class="btn btn-primary">Comprar</button>
-        </div>
-      </div>
-
-      <div class="card" style="width: 18rem;">
-        <img src="img/ejemplo-ticket3.jpg" class="card-img-top mt-2" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Sector Platea Alta</h5>
-          <p class="card-text">precio $7500ar</p>
-          <button id="ticket3" class="btn btn-primary">Comprar</button>
-        </div>
-      </div>
-
-      <div class="card" style="width: 18rem;">
-        <img src="img/ejemplo-ticket4.jpg" class="card-img-top mt-2" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Sector Vip</h5>
-          <p class="card-text">precio $10000ar</p>
-          <button id="ticket4" class="btn btn-primary">Comprar</button>
-        </div>
-      </div>
-
 </section>
 -->
 <section>
@@ -105,63 +86,9 @@
       <input type="text" class="form-control" id="clave" placeholder="xxx">
     </div>
     <button id="boton-comprar" type="submit" class="btn btn-primary">comprar</button>
-
   </fieldset>
   </form>
 
-  <form id="formulario2" class="mt-4 modal">
-    <span class="boton-cerrar">x</span>
-    <fieldset> 
-      <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Numero de tarjeta</label>
-      <input type="text" class="form-control" id="NumeroTarjeta" aria-describedby="emailHelp" placeholder="ejemplo: xxxx xxxx xxxx xxxx">
-      <div id="emailHelp" class="form-text"></div>
-    </div>
-
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">clave</label>
-      <input type="text" class="form-control" id="clave" placeholder="xxx">
-    </div>
-    <button id="boton-comprar2" type="submit" class="btn btn-primary">comprar</button>
-
-  </fieldset>
-  </form>
-
-  <form id="formulario3" class="mt-4 modal">
-    <span class="boton-cerrar">x</span>
-    <fieldset> 
-      <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Numero de tarjeta</label>
-      <input type="text" class="form-control" id="NumeroTarjeta" aria-describedby="emailHelp" placeholder="ejemplo: xxxx xxxx xxxx xxxx">
-      <div id="emailHelp" class="form-text"></div>
-    </div>
-
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">clave</label>
-      <input type="text" class="form-control" id="clave" placeholder="xxx">
-    </div>
-    <button id="boton-comprar3" type="submit" class="btn btn-primary">comprar</button>
-
-  </fieldset>
-  </form>
-
-  <form id="formulario4" class="mt-4 modal">
-    <span class="boton-cerrar">x</span>
-    <fieldset> 
-      <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Numero de tarjeta</label>
-      <input type="text" class="form-control" id="NumeroTarjeta" aria-describedby="emailHelp" placeholder="ejemplo: xxxx xxxx xxxx xxxx">
-      <div id="emailHelp" class="form-text"></div>
-    </div>
-
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">clave</label>
-      <input type="text" class="form-control" id="clave" placeholder="xxx">
-    </div>
-    <button id="boton-comprar4" type="submit" class="btn btn-primary">comprar</button>
-
-  </fieldset>
-  </form>
 
 </section>
 
