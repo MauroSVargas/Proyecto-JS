@@ -185,40 +185,64 @@ class ProductoEntrada {
     const productoEntrada4 = new ProductoEntrada(4, 'ejemplo-ticket4', 'Sector vip', 10000, 1);
 
 class productoRemera{   
-    constructor(id, color, precio, cantidad){
+    constructor(id, img, color, precio, cantidad){
         this.id = id;
+        this.img= img;
         this.color = color;
         this.precio = precio;
         this.cantidad = cantidad;
 }}
 
-    const productoRemera1 = new productoRemera (1, "blanca y negra", 1500, 1)
-    const productoRemera2 = new productoRemera(2, "blanca y gris", 2000, 1)
-    const productoRemera3 = new productoRemera(3, "celeste azul blanca", 5500, 1)
-    const productoRemera4 = new productoRemera(4, "franja roja y azul fondo blanco", 6000, 1)
+    const productoRemera1 = new productoRemera(1, 'remera1', 'blanca y negra', 1500, 1);
+    const productoRemera2 = new productoRemera(2, 'remera2' , 'blanca y gris', 2000, 1);
+    const productoRemera3 = new productoRemera(3, 'remera3' , 'celeste azul blanca', 5500, 1);
+    const productoRemera4 = new productoRemera(4, 'remera4' , 'franja roja y azul fondo blanco', 6000, 1);
 
 // ------------------------------------- ARRAY ---------------------------------//
 
 const ArrayEntrada = [productoEntrada1 , productoEntrada2, productoEntrada3, productoEntrada4];
 
-const ArrayRemera = [productoRemera1, productoRemera2, productoRemera3, productoRemera4];
-  
-  
-  const contenedorProductos = document.getElementById('contenedor-productos');
-  
-  ArrayEntrada.forEach((producto) => {
+
+
+const contenedorProductos = document.getElementById('contenedor-productos');
+
+ArrayEntrada.forEach((producto) => {
     const divProducto = document.createElement('div');
-    divProducto.classList.add('card', 'col-xl-3', 'col-md-6', 'col-sm-12');
+    divProducto.classList.add('card');
     divProducto.innerHTML = `
-                            <div class="row justify-content-center justify-content-around mt-5">
+    <div class="container-fluid, row, justify-content-center, justify-content-around, mt-5">
+    <div class="card" style="width: 18rem;">
+    <img src="img/${producto.img}.jpg" class="card-img-top mt-2 img">
+    <h3 class="card-title"> ${producto.color} </h3>
+    <p class="card-text"> ${producto.precio} </p>
+    <button id="boton${producto.id}" class="btn btn-primary"> Agregar al Carrito </button>
+    </div>
+    </div>`;
+    contenedorProductos.appendChild(divProducto);
+    //Agregar un evento al boton de agregar al carrito:
+    const boton = document.getElementById(`boton${producto.id}`);
+    boton.addEventListener('click', () => {
+        agregarAlCarrito(producto.id);
+    });
+});
+
+const ArrayRemera = [productoRemera1, productoRemera2, productoRemera3, productoRemera4];
+
+const contenedorRemeras = document.getElementById('contenedor-remeras');
+
+ArrayRemera.forEach((producto) => {
+    const divProducto = document.createElement('div');
+    divProducto.classList.add('card');
+    divProducto.innerHTML = `
+                            <div class="container-fluid row justify-content-center justify-content-around mt-5">
                             <div class="card" style="width: 18rem;">
-                            <img src="img/${producto.img}.jpg" class="card-img-top mt-2 img">
-                                    <h3 class="card-title"> ${producto.nombre} </h3>
+                            <img src="img/${producto.img}.jpg" class="card-img-top mt-2">
+                                    <h3 class="card-title"> ${producto.color} </h3>
                                     <p class="card-text"> ${producto.precio} </p>
                                     <button id="boton${producto.id}" class="btn btn-primary"> Agregar al Carrito </button>
                                 </div>
                             </div>`;
-    contenedorProductos.appendChild(divProducto);
+    contenedorRemeras.appendChild(divProducto);
     //Agregar un evento al boton de agregar al carrito:
     const boton = document.getElementById(`boton${producto.id}`);
     boton.addEventListener('click', () => {
@@ -226,6 +250,8 @@ const ArrayRemera = [productoRemera1, productoRemera2, productoRemera3, producto
     });
   });
 
+
+  
 
   //Creo el carrito de compras y una función que busque el producto por id y lo agregue al carrito.
 
