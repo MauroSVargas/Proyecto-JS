@@ -21,47 +21,11 @@ function ComprarEntrada4() {
 
 function ActivarForm(){
     document.getElementById('formulario').classList.remove('modal');
-}  
-
-function ActivarForm2(){
-    document.getElementById('formulario2').classList.remove('modal');
 } 
-
-function ActivarForm3(){
-    document.getElementById('formulario3').classList.remove('modal');
-} 
-
-function ActivarForm4(){
-    document.getElementById('formulario4').classList.remove('modal');
-} 
-
 //--------------------------------consts sobre seleccion de entrada------------------------------//
 /*
 const ENTRADA1 = document.getElementById('ticket1');
 ENTRADA1.addEventListener('click', ActivarForm);
-
-const ENTRADA2 = document.getElementById('ticket2');
-ENTRADA2.addEventListener('click', ActivarForm2);
-
-const ENTRADA3 = document.getElementById('ticket3');
-ENTRADA3.addEventListener('click', ActivarForm3);
-
-const ENTRADA4 = document.getElementById('ticket4');
-ENTRADA4.addEventListener('click', ActivarForm4);
-
-
-
-const COMPRA = document.getElementById('boton-comprar');
-COMPRA.addEventListener('click', ComprarEntrada1);
-
-const COMPRA2 = document.getElementById('boton-comprar2');
-COMPRA2.addEventListener('click', ComprarEntrada2);
-
-const COMPRA3 = document.getElementById('boton-comprar3');
-COMPRA3.addEventListener('click', ComprarEntrada3);
-
-const COMPRA4 = document.getElementById('boton-comprar4');
-COMPRA4.addEventListener('click', ComprarEntrada4);
 */
 //--------------------------------------funciones que suceden una vez eligo entrada---------------------------------//
 
@@ -183,7 +147,7 @@ class ProductoEntrada {
     const productoEntrada2 = new ProductoEntrada(2, 'ejemplo-ticket2', 'Sector platea baja', 3000, 1);
     const productoEntrada3 = new ProductoEntrada(3, 'ejemplo-ticket3' , 'Sector platea alta', 7000, 1);
     const productoEntrada4 = new ProductoEntrada(4, 'ejemplo-ticket4', 'Sector vip', 10000, 1);
-/*
+
 class productoRemera{   
     constructor(id, img, color, precio, cantidad){
         this.id = id;
@@ -197,18 +161,18 @@ class productoRemera{
     const productoRemera2 = new productoRemera(2, 'remera2' , 'blanca y gris', 2000, 1);
     const productoRemera3 = new productoRemera(3, 'remera3' , 'celeste azul blanca', 5500, 1);
     const productoRemera4 = new productoRemera(4, 'remera4' , 'franja roja y azul fondo blanco', 6000, 1);
-*/
+
 // ------------------------------------- ARRAY ---------------------------------//
 
 const ArrayEntrada = [productoEntrada1 , productoEntrada2, productoEntrada3, productoEntrada4];
 
-
+const ArrayRemera = [productoRemera1, productoRemera2, productoRemera3, productoRemera4];
 
 const contenedorProductos = document.getElementById('contenedor-productos');
 
 ArrayEntrada.forEach((producto) => {
     const divProducto = document.createElement('div');
-    divProducto.classList.add('card');
+    //divProducto.classList.add('card');
     divProducto.innerHTML = `
                     <div class="container-fluid row justify-content-center justify-content-arounD mt-5">
                     <div class="card" style="width: 18rem;">
@@ -226,16 +190,31 @@ ArrayEntrada.forEach((producto) => {
     });
 });
 
+const contenedorRemeras = document.getElementById('contenedor-remeras');
 
-
-
-
-  
+ArrayRemera.forEach((producto) => {
+    const divProducto = document.createElement('div');
+    //divProducto.classList.add('card');
+    divProducto.innerHTML = `
+                            <div class="container-fluid row justify-content-center justify-content-around mt-5">
+                            <div class="card" style="width: 18rem;">
+                            <img src="../img/${producto.img}.jpg" class="card-img-top mt-2">
+                                    <h3 class="card-title"> ${producto.color} </h3>
+                                    <p class="card-text"> ${producto.precio} </p>
+                                    <button id="boton${producto.id}" class="btn btn-primary"> Agregar al Carrito </button>
+                                </div>
+                            </div>`;
+    contenedorRemeras.appendChild(divProducto);
+    //Agregar un evento al boton de agregar al carrito:
+    const boton = document.getElementById(`boton${producto.id}`);
+    boton.addEventListener('click', () => {
+      agregarAlCarrito(producto.id);
+    });
+  });
 
   //Creo el carrito de compras y una función que busque el producto por id y lo agregue al carrito.
 
 const carrito = [];
-
 //Versión Simple:
 
 /*
@@ -248,15 +227,20 @@ const agregarAlCarrito = (id) => {
 //Versión que chequea las cantidades:
 
 const agregarAlCarrito = (id) => {
-  const producto = ArrayEntrada.find((producto) => producto.id === id);
-  const productoEnCarrito = carrito.find((producto) => producto.id === id);
+const tickets = ArrayEntrada.find((producto) => producto.id === id);
+const remeras = ArrayRemera.find((producto) => producto.id === id);
+
+const productoEnCarrito = carrito.find((producto) => producto.id === id);
   if (productoEnCarrito) {
     productoEnCarrito.cantidad++;
   } else {
-    carrito.push(producto);
+    carrito.push (tickets);
+    carrito.push (remeras);
+    
   }
   actualizarCarrito();
 };
+
 
 //Muestro el carrito de compras modificando el DOM.
 
@@ -287,7 +271,7 @@ function actualizarCarrito() {
 //Agrego una función que elimine el producto del carrito:
 
 const eliminarDelCarrito = (id) => {
-  const producto = carrito.find((producto) => producto.id === id);
+const producto = carrito.find((producto) => producto.id === id);
   carrito.splice(carrito.indexOf(producto), 1);
   actualizarCarrito();
 };
@@ -311,9 +295,3 @@ const calcularTotalCompra = () => {
   });
   totalCompra.innerHTML = total;
 };
-
-
-
-
-
-

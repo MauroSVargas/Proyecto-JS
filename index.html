@@ -32,7 +32,7 @@
               <li class="nav-item">
                 <a class="nav-link active" href="pages/contacto.html">contacto</a>
               </li>
-          </ul>
+            </ul>
           </div>
         </div>
     </nav>
@@ -45,11 +45,24 @@
   </button>
 
 <div class="collapse" id="collapseExample">
-  <div id="contenedor-productos" class="container">
-  </div>
+      <div id="contenedor-productos" class="container"></div>
 </div>
 
 
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" 
+aria-expanded="false" aria-controls="collapseExample">mostrar remeras
+</button>
+
+<div class="collapse" id="collapseExample2">
+    <div id="contenedor-remeras" class="container"></div>
+</div>
+
+<h2>Carrito de Compras:</h2>
+    <button class="btn btn-primary" id="verCarrito">Ver Carrito</button>
+    <button class="btn btn-primary" id="vaciarCarrito">Vaciar Carrito</button>
+
+<h3>Total de la compra: <span id="totalCompra">0</span></h3>
+    <div class="row py-3" id="contenedorCarrito"></div>
 <!-- 
 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
   Button with data-target
