@@ -4,16 +4,14 @@
     box-sizing: border-box;
 }
 
-html{
-    height: 100%;
-}
-
 body{
-    background-color:gainsboro;
     min-height: 100vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(26,31,30,1) 35%, rgba(0,212,255,1) 100%);
+    
 }
-h1{
-    color: black;
+h1,h2,  h3{
+    color: #f4f4f4;
 }
 
 #formulario{
@@ -21,23 +19,13 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: bisque;
-    border-style: groove;
-    margin: 0 500px 500px;
+    background-color: #f4f4f4;
+    border-style: solid;
+    border-color: black;
+    margin: 500px 500px;
     padding: 10px 15px;
 }
-/*
-.boton-cerrar{
-    float: inline-end;
-    right: 0;
-    cursor: pointer;
-    border-radius: 10%;
-    border-color: black;
-    border-style: groove;
-    border-width: 1px;
 
-}
-*/
 .modal{ 
     visibility: hidden;
     opacity: 0;
@@ -51,48 +39,38 @@ h1{
 
 
 }
-/*
 
-.imagen-entrada{
-    width: 350px;
-    height: 250px;
+.imagen-cover{
+    width: 100px;
+    height: 80px;
+    text-align: center;
 }
 
-
-.card-body{
+.contenedor-elementos{
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 50px;
 }
-.card{
-    display: flex;
-    justify-content: center;
 
-
-}
-/*
-.contenedor{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-/*
-.card{
-    gap: 50px;
-    width: 350px;
-    height: 250px;
-}*/
-
-.img{
-    height: 150px;
-    width: 200px;
+.bg{
+    background: rgb(10,7,22);
+background: linear-gradient(0deg, rgba(10,7,22,1) 28%, rgba(0,212,255,1) 100%);
 }
 
 nav{
-    justify-content: space-between;
-    width: 99%;
+    border-bottom: ridge;
+    border-color: grey;
+    left: 0;
+    margin: 0;
+}
+
+.card-title{
+    color: black;
+}
+
+.contenedor-compra{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
 }
